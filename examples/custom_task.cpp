@@ -6,6 +6,7 @@
 #include "func_objects/task/builders/task_custom_builder.hpp"
 
 using namespace cppts;
+using namespace std::chrono_literals;
 
 class MyTask : public TaskBase {
 public:
@@ -42,7 +43,7 @@ int main() {
 
 	auto trigger = TriggerBuilder::create()
 		.name("printer")
-		.interval_sec(1)
+		.interval(1s)
 		.repeats_count(5)
 		.build();
 

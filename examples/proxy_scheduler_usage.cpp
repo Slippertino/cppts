@@ -32,7 +32,7 @@ void init() {
 std::string fill_scheduler() {
 	auto trigger = TriggerBuilder::create()
 		.name("printer_root")
-		.interval_sec(2)
+		.interval(2s)
 		.repeats_count(5)
 		.build();
 
@@ -56,7 +56,7 @@ std::string fill_scheduler() {
 std::string fill_proxy_scheduler() {
 	auto trigger = TriggerBuilder::create()
 		.name("printer_proxy")
-		.interval_ms(500)
+		.interval(500ms)
 		.repeats_count(20)
 		.build();
 

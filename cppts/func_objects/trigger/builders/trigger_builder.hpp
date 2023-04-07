@@ -21,11 +21,12 @@ public:
 
 	TriggerBuilder& depends_on(std::shared_ptr<ISwitcherStateProvider> switcher);
 
-	TriggerBuilder& interval_ms(size_t count);
-
-	TriggerBuilder& interval_sec(size_t count);
-
-	TriggerBuilder& interval_min(size_t count);
+	template<class TDur>
+	TriggerBuilder& interval(TDur count) {
+		return add_condition<PeriodicityCondition<TDur>>(
+			TDur{ count }
+		);
+	}
 
 	TriggerInfo build();
 

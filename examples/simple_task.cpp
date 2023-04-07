@@ -5,6 +5,7 @@
 #include "logger/console_logger.hpp"
 
 using namespace cppts;
+using namespace std::chrono_literals;
 
 std::shared_ptr<TaskScheduler> scheduler;
 
@@ -20,7 +21,7 @@ int main() {
 
 	auto trigger = TriggerBuilder::create()
 		.name("printer")
-		.interval_ms(500)
+		.interval(500ms)
 		.repeats_count(10)
 		.build();
 

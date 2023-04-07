@@ -57,7 +57,7 @@ void TaskScheduler::add_system_block() {
 
 	auto sys_trigger = TriggerBuilder::create()
 		.name(sys_trigger_name)
-		.interval_sec(2)
+		.interval(2s)
 		.forever()
 		.depends_on(_settings.switcher)
 		.build();

@@ -31,24 +31,6 @@ TriggerBuilder& TriggerBuilder::depends_on(std::shared_ptr<ISwitcherStateProvide
 	return add_condition<DependencyCondition>(switcher);
 }
 
-TriggerBuilder& TriggerBuilder::interval_ms(size_t count) {
-	return add_condition<PeriodicityCondition<std::chrono::milliseconds>>(
-		std::chrono::milliseconds{ count }
-	);
-}
-
-TriggerBuilder& TriggerBuilder::interval_sec(size_t count) {
-	return add_condition<PeriodicityCondition<std::chrono::seconds>>(
-		std::chrono::seconds{ count }
-	);
-}
-
-TriggerBuilder& TriggerBuilder::interval_min(size_t count) {
-	return add_condition<PeriodicityCondition<std::chrono::minutes>>(
-		std::chrono::minutes{ count }
-	);
-}
-
 TriggerInfo TriggerBuilder::build() {
 	return std::move(_info);
 }
